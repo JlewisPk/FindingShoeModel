@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Tabs.SearchModel" Title= "Find Model">
+	<StackLayout Margin="20" Orientation="Vertical">
+        <StackLayout Orientation="Horizontal">
+        <Button Text="Take Photo and Analyze" Margin = "-5, 0, 15, 0" Clicked="loadCamera" />
+        <Button Text="Pick Photo from Gallery"  Clicked="accessGallery" />
+        </StackLayout>
+        
+        <StackLayout Orientation="Vertical">
+            <ActivityIndicator x:Name= "Processing" Color="Blue" IsRunning="false"></ActivityIndicator>
+            <Label x:Name="TagLabel">
+            </Label>
+            <Label x:Name="TagLabel2">
+            </Label>
+            <Label x:Name="PredictionLabel">
+            </Label>
+            <Label x:Name="PredictionLabel2">
+            </Label>
+        </StackLayout>
+        <Image x:Name="image" Aspect="AspectFit"/>
+    </StackLayout>
+</ContentPage>

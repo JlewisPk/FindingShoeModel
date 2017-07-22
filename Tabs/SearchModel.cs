@@ -152,10 +152,7 @@ namespace Tabs
 
 					///// option 1   //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 					if (probability >0.5) {
-						PredictionLabel.Text = "Model ID: ";
-						PredictionLabel2.Text += tagId;
-						TagLabel.Text = "Model Name: ";
-						TagLabel2.Text = tagName;
+						
 
 						bool contained = true;
 						List<shoemodel> shoeInformation = await AzureManager.AzureManagerInstance.GetShoeInformation();
@@ -164,6 +161,7 @@ namespace Tabs
 							if (((string)x.Id).Equals((string)instance.Id))
 							{
 								contained = true;
+                                break;
 							}
 							else
 							{
@@ -172,8 +170,17 @@ namespace Tabs
 						}
 						if (contained.Equals(false))
 						{
+							PredictionLabel.Text = "Model ID: ";
+							PredictionLabel2.Text += tagId;
+							TagLabel.Text = "Model Name: ";
+							TagLabel2.Text = tagName;
 							await AzureManager.AzureManagerInstance.PostShoeInformation(instance);
-						}
+                        } else {
+							PredictionLabel.Text = "Model ID: ";
+							PredictionLabel2.Text += tagId;
+							TagLabel.Text = "Model Name: ";
+							TagLabel2.Text = tagName;
+                        }
 
                     } else {
                         PredictionLabel.Text = "The model is not found. Try other model.";
